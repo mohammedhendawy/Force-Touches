@@ -1,0 +1,415 @@
+//importing the fonts
+@font-face {
+  src: url("../fonts/Roboto-Medium_0.ttf");
+  font-family: "Roboto";
+}
+@font-face {
+  src: url("../fonts/Fancy\ Signature.ttf");
+  font-family: "Fancy";
+}
+
+//varriables of main colors
+$main-color: #868c92;
+$secondary-color: #acb3ba;
+
+html,
+body {
+  margin: 0%;
+  padding: 0%;
+  width: 100%;
+  height: 100vh;
+  font-family: "Roboto";
+  overflow: hidden;
+}
+
+body {
+  background-size: cover;
+  background: url(../images/Background.png) no-repeat 50% 50%;
+
+}
+//loading page for animating background
+.loading-screen {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/up.png) 0 0;
+  z-index: -2;
+  top: 200%;
+}
+
+//hamburger
+.flaticon-menu {
+  position: absolute;
+  top: 30px;
+  left: 137px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+
+  @media screen and (max-width: 600px) {
+    top: 20px;
+  left: 10px;
+  z-index: 50000;
+  }
+}
+//overlayed ftll screen
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.884);
+  overflow-x: hidden;
+  transition: 0.5s;
+
+  //divs of the overlay
+  .overlay-content {
+    position: relative;
+    display: flex;
+    margin: 170px 150px;
+    @media screen and (max-width: 678px) {
+      display: block;
+      margin: 100px 60px ;
+
+    }
+    //left links col
+    .col-1 {
+      margin-right: 60px;
+      padding-right: 70px;
+      border-right: 1px solid $secondary-color;
+      @media screen and (max-width: 678px) {
+        border: none;
+        padding-right: 0;
+        margin-right: 0;
+      }
+    }
+    //nav of links
+    a {
+      position: relative;
+      padding: 8px;
+      text-decoration: none;
+      text-align: left;
+      color: #ffffff;
+      display: block;
+      transition: 0.3s;
+      font-size: 25px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        width: 50%;
+        height: 20%;
+        border-radius: 100%;
+        box-shadow: 3px 21px 6px 4px #ffffff;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.3s ease-in-out;
+        @media screen and (max-width: 678px) {
+          width: 20%;
+        height: 20%;
+        }
+      }
+      &:hover {
+        &::before {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+      }
+    }
+    //class of long link for hover
+    .Testiominals {
+      &::before {
+        width: 100% !important;
+        @media screen and (max-width: 678px) {
+          width: 42% !important;
+          height: 20%;
+        }
+      }
+    }
+    //class of long link for hover
+    .about {
+      &::before {
+        width: 72% !important;
+        @media screen and (max-width: 678px) {
+          width: 30% !important;
+          height: 20%;
+        }
+      }
+    }
+    
+    //change of width in drop link
+    .col-2 {
+      a {
+        &::before {
+          width: 110%;
+          left: -10px;
+       
+            @media screen and (max-width: 678px) {
+              width: 40% !important;
+              height: 20%;
+            }
+        }
+      }
+    }
+  }
+}
+
+//close btn
+.closebtn {
+  position: absolute;
+  top: 10px;
+  left: 137px;
+  font-size: 60px;
+  color: $main-color;
+  cursor: pointer;
+  @media screen and (max-height: 600px) {
+    top: 10px;
+  left: 10px;
+  }
+}
+@media screen and (max-height: 600px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+//containerof all divs
+.container {
+  display: flex;
+  width: 80%;
+  margin: 50px auto;
+  color: $secondary-color;
+  justify-content: center;
+  @media screen and (max-width: 678px) {
+    width: 90%;
+    padding: 0 10px;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  @media screen and (max-width: 458px) {
+  padding-left: 30px;
+}
+
+  //first head
+  h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 300;
+    padding-top: 20px;
+    margin-bottom: 10px;
+    color: $secondary-color;
+    opacity: 0;
+    transform: translateY(-20px);
+    @media screen and (max-width: 678px) {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      padding-top: 70px;
+    }
+  }
+
+  //second head
+  h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 0;
+    letter-spacing: 1px;
+    color: $secondary-color;
+    opacity: 0;
+    transform: translateY(-30px);
+    @media screen and (max-width: 678px) {
+      font-size: 1.8rem;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  //paragrapha of midlle page
+  .american {
+    font-size: 1rem;
+    width: 70%;
+    padding-top: 30px;
+    line-height: 20px;
+    letter-spacing: 1.5px;
+    opacity: 0;
+    transform: translateY(-20px);
+    @media screen and (max-width: 600px) {
+      width: 80%;
+      margin-left:0 ;
+      padding-top: 20px;
+
+    }
+  }
+
+  //the two download links in the page
+  .links {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    width: 50%;
+    opacity: 0;
+    transform: translateX(-120px);
+    @media screen and (max-width: 600px) {
+      justify-content: space-around;
+      width: 70%;
+    }
+    @media screen and (max-width: 450px) {
+      justify-content: space-between;
+
+    }
+    .left-link,
+    .right-link {
+      color: $main-color;
+      display: flex;
+      width: 100px;
+      height: 50px;
+      p {
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      //download link
+      a {
+        position: relative;
+        left: -20px;
+        &::before {
+          position: absolute;
+          content: "";
+          box-shadow: 1px 20px 11px #ffffff7a;
+          border-radius: 50%;
+          display: inline-block;
+          width: 23px;
+          height: 12px;
+          left: 18px;
+          top: -18px;
+          overflow: hidden;
+        }
+        i {
+          color: white;
+          font-size: 45px;
+          font-weight: lighter;
+
+          &::after {
+            position: absolute;
+            content: "";
+            top: 13px;
+            left: 5px;
+            width: 50%;
+            height: 60%;
+            border-radius: 50%;
+          }
+        }
+      }
+      //spans of first download link
+      .spans {
+        display: flex;
+        justify-content: space-around;
+        span {
+          margin-right: 20px;
+          &:first-child {
+            text-transform: uppercase;
+            font-size: 11px;
+          }
+          //second span
+          &:last-child {
+            text-transform: capitalize;
+            font-size: 10px;
+            margin-left: 18px;
+          }
+        }
+      }
+    }
+    //second link of the links in middle page
+    .right-link {
+      position: relative;
+    }
+  }
+
+  //the third header signature ofname of the company
+  .force {
+    font-size: 1.7rem;
+    padding: 20px 0;
+    font-family: "Fancy";
+    opacity: 0;
+    transform: translateY(30px);
+    @media screen and (max-width: 600px) {
+      padding:10px 30px;
+    }
+    @media screen and (max-width: 450px) {
+      padding-top: 0;
+    }
+  }
+
+  //the div of the book image
+  .col-right {
+    margin: 50px;
+    opacity: 0;
+    transform: translateX(130px);
+    @media screen and (max-width: 800px) {
+      width:50px;
+
+    }
+  img{
+
+    @media screen and (max-width: 600px) {
+      padding-right: 150px;
+    }
+  }
+}
+
+//social media links in the bottom left side
+.socials {
+  position: relative;
+  left: 50px;
+  top: 500px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(-30px);
+  @media screen and (max-width: 678px) {
+    left: 10px;
+    top: 480px;
+  }
+  @media screen and (max-width: 458px) {
+    left: 10px;
+    top:450px;
+  }
+  .flaticon-down-arrow {
+    color: $main-color;
+  }
+  .flaticon-up-arrow {
+    color: $secondary-color;
+    display: block;
+    transition: all 0.3s ease-in-out;
+  }
+  a {
+    color: $main-color;
+    display: block;
+    text-decoration: none;
+    margin: 12px 0;
+    opacity: 0;
+    transition: 0.7s;
+    transform: scale(0);
+  }
+  &:hover {
+    .flaticon-up-arrow {
+      transform: translateY(-105px);
+    }
+    a {
+      opacity: 1;
+      transform: translateY(-135px) scale(1);
+    }
+  }
+}
+main {
+  display: flex;
+}
+
